@@ -1,0 +1,64 @@
+.home_container {
+    height: 80vh;
+    width: 100%;
+    background-image: url('./nissan_silvia.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.home_container h1 {
+    text-transform: uppercase;
+    font-size: 5em;
+    color:#FFF;
+    text-shadow: 1px 1px 3px #000;
+}
+
+.home_container form {
+    display: flex;
+    flex-direction: row;
+}
+
+.home_container input {
+    height: 3em;
+    width: 60em;
+    padding: 0.5em 1em;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    border: none;
+    border-radius: 1em;
+    z-index: 1;
+}
+
+.home_container :is(:hover, :focus) {
+    outline: none;
+}
+
+.home_container input::placeholder {
+    font-size: 1em;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+}
+
+.home_container button {
+    padding: 0 1em;
+    margin-left: -3em;
+    z-index: 2;
+    border: none;
+    font-size: 1.5em;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: .3s;
+}
+
+.home_container button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #FFF;
+}
