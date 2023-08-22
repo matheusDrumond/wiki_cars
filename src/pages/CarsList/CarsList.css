@@ -1,0 +1,55 @@
+.cars-list-container {
+    height: 100%;
+    align-items: center;
+    text-align: center;
+    padding: 1em;
+}
+
+.cars-list h2 {
+    text-transform: uppercase;
+    font-size: 2em;
+}
+
+.cars-list span {
+    text-transform: capitalize;
+    font-size: 1.5em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.cars-list {
+    padding: 1em;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+
+.cars-list li {
+    border: 1px solid #000;
+    list-style: none;
+    padding: 1.5em 2em;
+    border-radius: 0.5em;
+    width: 28%;
+    transition: .3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.cars-list li:hover {
+    background-color: #DCDCDC;
+    border: 1px solid #DCDCDC;
+}
+
+.cars-list a {
+    text-decoration: none;
+    color: #00BFFF;
+    transition: .3s;
+}
+
+.cars-list a:hover {
+    text-decoration: underline;
+}

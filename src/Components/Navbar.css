@@ -9,6 +9,13 @@
     padding: 1em 2em;
 }
 
+.active {
+    color: #00BFFF;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+}
+
 .navbar h2{
     font-size: 1.5em;
     font-weight: 400;
@@ -29,10 +36,10 @@
     list-style: none;
 }
 
-.navbar a {
+.navbar a:not(.active) {
     text-decoration: none;
-    color: #000;
     font-weight: 600;
+    color: #000;
     transition: .3s;
 }
 
@@ -40,6 +47,3 @@
     color: #A9A9A9;
 }
 
-.active {
-    color: 	#FF4500;
-}
