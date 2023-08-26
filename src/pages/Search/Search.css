@@ -1,0 +1,69 @@
+.search-container {
+    height: max-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+    gap: 2em;
+    box-sizing: border-box;
+}
+
+.search-container h1 {
+    font-size: 2.5em;
+}
+
+.error-message {
+    color: #8B0000;
+    background-color: rgba(250,128,114, 0.6);
+    border: 1px solid #8B0000;
+    border-radius: 0.5em;
+    padding: 1em;
+}
+
+.loading-message {
+    color: #0000CD
+}
+
+.loader {
+    color: #0000CD;
+    animation: 2s linear 0.5s infinite loading;
+}
+
+@keyframes loading {
+    0% { content: '' }
+    33% { content: '.' }
+    66% { content: '..' }
+    100% { content: '...' }
+}
+
+.result-list {
+    padding: 1em;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.result-list li {
+    text-align: center;
+    border: 1px solid #000;
+    list-style: none;
+    padding: 1.5em 2em;
+    border-radius: 0.5em;
+    width: 20%;
+    transition: .3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.car-name {
+    text-transform: uppercase;
+}
+
+.car-brand {
+    text-transform: capitalize;
+}

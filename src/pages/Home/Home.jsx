@@ -1,6 +1,3 @@
-// Background image
-import background from './home_background.jpg'
-
 // Icons
 import { HiSearch } from 'react-icons/hi'
 
@@ -20,10 +17,7 @@ const Home = () => {
     e.preventDefault();
 
     const finalQuery = query.toLowerCase();
-
     navigate('/search?q=' + finalQuery)
-
-    console.log(finalQuery)
   }
 
   return (

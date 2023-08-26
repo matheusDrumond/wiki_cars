@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 
 export const useFetch = (url) => {
 
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -15,11 +15,18 @@ export const useFetch = (url) => {
             setLoading(true);
             
             try {
-            const res = await fetch(url);
+            const res = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Api-Key': 'OQrhwmD8MAAetKoAzR+lhA==PelUFqyYbP7gQED5'
+                }
+            });
 
             const json = await res.json()
             
             setData(json)
+
             } catch (error) {
                 console.log(error.message)
 
