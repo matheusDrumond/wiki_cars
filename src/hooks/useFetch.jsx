@@ -1,29 +1,38 @@
 // React hooks
+import { useState, useEffect } from "react"
 
-import { useState } from "react"
+export const useFetch = (url) => {
 
-export const useFetch = (url, model) => {
-
-    const [data, setData] = useState(null);
+    const [data, setData] = useState([]);
+    const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    const fetchData = async () => {
-        setLoading(true);
+    useEffect(() => {
 
-        const res = await fetch(url + model, {
-            method: 'GET',
-            headers: {
-                "Content-Type": 'application/json',
-                'X-Api-Key': 'OQrhwmD8MAAetKoAzR+lhA==PelUFqyYbP7gQED5'
+        const fetchData = async () =>{
+            // Loading
+            // Inicia o carregamento
+            setLoading(true);
+            
+            try {
+            const res = await fetch(url);
+
+            const json = await res.json()
+            
+            setData(json)
+            } catch (error) {
+                console.log(error.message)
+
+                setError(error)
             }
-        })
 
-        const json = await res.json();
+            // Finaliza o Carregamento
+            setLoading(false);
+        }
 
-        setData(json);
-        setLoading(false);
-    }
+        fetchData();
+    }, [url])
 
-    return { data }
+    return { data, loading, error }
 
 }

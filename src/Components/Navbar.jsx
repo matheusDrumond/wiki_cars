@@ -10,12 +10,14 @@ const Navbar = () => {
             <h2>wiki<span>cars</span></h2>
             <ul>
                 <li>
-                <NavLink to={'/'}>Home</NavLink>
+                    <NavLink to={'/'}>Home</NavLink>
                 </li>
                 <li>
-                <NavLink to={'/cars'}>Cars</NavLink>
+                    <NavLink to={'/cars'}>Cars</NavLink>
                 </li>
-                <NavLink to={'/about'}>About</NavLink>
+                <li>
+                    <NavLink to={'/about'}>About</NavLink>
+                </li>
             </ul>
         </nav>
       )
