@@ -6,7 +6,7 @@ import { useSearchParams } from 'react-router-dom'
 
 // Hooks
 import { useFetch } from '../../hooks/useFetch';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { HiSearch } from 'react-icons/hi';
 
 const Search = () => {
@@ -17,10 +17,9 @@ const Search = () => {
 
     // Filtering by year
     const [year, setYear] = useState('')
+    const [getYear, setGetYear] = useState('');
     //Getting the filter value
-    const filter = useRef()
-    const [activeFilter, setActiveFilter] = useState()
-    
+    const [activeFilter, setActiveFilter] = useState(false)    
 
     // Request URL
     const url = 'https://api.api-ninjas.com/v1/cars?limit=50&model=' + searchTerm + '&year=' + year
@@ -30,28 +29,48 @@ const Search = () => {
 
     // Ordering from newer to older
     const orderedItems = items?.sort((a, b) => b.year - a.year)
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        setYear(getYear)
+    }
+
+    useEffect(() => {
+        if(!activeFilter) {
+            setYear('')
+            setGetYear('')
+        }
+    }, [activeFilter])
         
   return (
     <div className='search-container'>
-        <div>
+        <div className='search-header'>
             <h1>See all matching cars</h1>
-            <form>
-                <label>
-                    filter by year
-                    <input type='checkbox' ref={filter} checked={activeFilter} onChange={(e) => setActiveFilter(e.target.checked)}/>
-                </label>
+            <form onSubmit={handleSubmit}>
                 {activeFilter && (
                     <>
                         <input 
                         type="number"
-                        value={year}
-                        onChange={(e) => setYear(e.target.value)}
+                        value={getYear}
+                        onChange={(e) => setGetYear(e.target.value)}
+                        className='filter-input'
                         /> 
+                        <button type='submit' className='filter-btn'><HiSearch /></button>
                     </>)
                 }
+                <label>
+                    filter by year
+                    <input 
+                    type='checkbox' 
+                    checked={activeFilter} 
+                    value={activeFilter}
+                    onChange={(e) => setActiveFilter(e.target.checked)}
+                    />
+                </label>
             </form>
         </div>
-        {loading && <h2 className='loading-message'>Loading data <span className='loader'></span></h2>}
+        {loading && <h2 className='loading-message'>Loading data...</h2>}
         {error && <h2 className='error-message'>Ops, an error occurred, try again</h2>}
         {orderedItems && (!loading && !error) && (
             <ul className='result-list'>
