@@ -49,6 +49,16 @@
     min-width: fit-content;
 }
 
+.result-list li:hover {
+    background-color: #DCDCDC;
+    border: 1px solid #DCDCDC;
+}
+
+.result-list li a {
+    color: #00BFFF;
+    text-decoration: none;
+}
+
 .car-name {
     text-transform: uppercase;
 }
