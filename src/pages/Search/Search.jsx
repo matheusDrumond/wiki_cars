@@ -2,14 +2,14 @@
 import './Search.css'
 
 // React Router
-import { useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 
 // Hooks
 import { useFetch } from '../../hooks/useFetch';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { HiSearch } from 'react-icons/hi';
 
-const Search = () => {
+const Search = ({ getCarsInfo }) => {
 
     // Identifies the model the user is looking for
     const [searchParams] = useSearchParams();
@@ -30,6 +30,12 @@ const Search = () => {
     // Ordering from newer to older
     const orderedItems = items?.sort((a, b) => b.year - a.year)
 
+    // Send the array to the info pages
+
+    useEffect(() => {
+        getCarsInfo(orderedItems)
+    }, [orderedItems])
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -46,7 +52,7 @@ const Search = () => {
   return (
     <div className='search-container'>
         <div className='search-header'>
-            <h1>See all matching cars</h1>
+            <h1>See all cars that match <span className='matching-car'>{(searchTerm.toLocaleUpperCase())}</span></h1>
             <form onSubmit={handleSubmit}>
                 {activeFilter && (
                     <>
@@ -79,7 +85,11 @@ const Search = () => {
                         <h2 className='car-name'>{item.model}</h2>
                         <span className='car-brand'>{item.make}</span>
                         <span>{item.year}</span>
-                        <a href='#'>More information</a>
+                        <Link 
+                        to={`/info/${index}`} 
+                        >
+                            See more
+                        </Link>
                     </li>
                 ))}
             </ul>
