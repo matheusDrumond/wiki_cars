@@ -2,7 +2,7 @@
 import './Info.css'
 
 // React Router
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 const Info = ({ carsInfo }) => {
     const { id } = useParams()
@@ -24,35 +24,37 @@ const Info = ({ carsInfo }) => {
   return (
     <div className='car-info'>
       <div className="info-header">
-        <h1>{model}</h1>
-        <span>{make}</span>
-        <h2>{year}</h2>
+        <h1 className='info-car-model'>{model}</h1>
+        <span className='info-car-make'>{make}</span>
+        <span className='info-car-year'>{year}</span>
       </div>
-      <p>Car's info</p>
-      <table>
+      <table className='info-table'>
+        <th>
+          Car's info
+        </th>
         <tr>
           <td>Fuel type</td>
-          <td>{fuel_type}</td>
+          <td className='info-value'>{fuel_type}</td>
         </tr>
         <tr>
           <td>Drive</td>
-          <td>{drive}</td>
+          <td className='info-value'>{drive}</td>
         </tr>
         <tr>
           <td>Cylinders</td>
-          <td>{cylinders}</td>
+          <td className='info-value'>{cylinders}</td>
         </tr>
         <tr>
           <td>Transmission</td>
-          <td>{transmission == 'a' ? 'automatic' : 'manual'}</td>
+          <td className='info-value'>{transmission == 'a' ? 'automatic' : 'manual'}</td>
         </tr>
         <tr>
           <td>Fuel consumption (City)</td>
-          <td>{parseInt(city_mpg * 0.425143707)}</td>
+          <td className='info-value'>{parseInt(city_mpg * 0.425143707)} Km/L</td>
         </tr>
         <tr>
           <td>Fuel consumption (Highway)</td>
-          <td>{parseInt(highway_mpg * 0.425143707)}</td>
+          <td className='info-value'>{parseInt(highway_mpg * 0.425143707)} Km/L</td>
         </tr>
       </table>
     </div>
