@@ -22,13 +22,35 @@
 
 .info-car-make {
     text-transform: capitalize;
-    font-size: 1.5em;
+    font-size: 2em;
 }
 
 .info-car-year {
-    font-size: 1.2em;
+    font-size: 1.6em;
 }
 
-.table-title {
-    text-align: center;
+table {
+    border-collapse: collapse;
+    border: 2px solid rgb(200,200,200);
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+}
+  
+td, th {
+    border: 1px solid rgb(190,190,190);
+    padding: 10px 20px;
+    font-size: 1.6em;
+}
+  
+th {
+    background-color: rgb(235,235,235);
+}
+
+
+.info-value {
+    text-transform: capitalize;
+}
+
+.drive {
+    text-transform: uppercase;
 }
