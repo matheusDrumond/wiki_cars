@@ -1,24 +1,21 @@
-// Styles 
-import './Info.css'
-
 // React Router
-import { useParams } from 'react-router-dom'
+import { useParams } from "react-router-dom"
 
 // Hooks
-import { useLayoutEffect, useState } from 'react'
+import { useState, useLayoutEffect } from "react"
 
 // Icons
-import { HiOutlineHeart, HiHeart } from 'react-icons/hi'
+import { HiHeart, HiOutlineHeart } from "react-icons/hi" 
 
-const Info = ({ carsInfo, addFavoriteCar }) => {
+const Favorite = ({ favoriteCars, addFavoriteCar }) => {
     const { id } = useParams()
 
     const [car, setCar] = useState(null)
 
     useLayoutEffect(()=>{
-      carsInfo && setCar(carsInfo[id])
+      favoriteCars && setCar(favoriteCars[id])
 
-    }, [carsInfo])
+    }, [favoriteCars])
 
     const [favorited, setFavorited] = useState(false)
     
@@ -83,4 +80,4 @@ const Info = ({ carsInfo, addFavoriteCar }) => {
   )
 }
 
-export default Info
+export default Favorite

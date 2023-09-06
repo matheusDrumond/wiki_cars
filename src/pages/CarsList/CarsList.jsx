@@ -1,41 +1,26 @@
 // Styles
 import './CarsList.css'
 
-const CarsList = () => {
+// React Router
+import { Link } from 'react-router-dom'
+
+const CarsList = ({ favoriteCars }) => {
     return (
         <div className='cars-list-container'>
           <h1>Cars list</h1>
           <ul className='cars-list'>
-            <li>
-              <h2>Skyline GT-R R34</h2>
-              <span>nissan</span>
-              <a href='#'>More information</a>
-            </li>
-            <li>
-              <h2>Car name</h2>
-              <span>Brand</span>
-              <a href='#'>More information</a>
-            </li>
-            <li>
-              <h2>Car name</h2>
-              <span>Brand</span>
-              <a href='#'>More information</a>
-            </li>
-            <li>
-              <h2>Car name</h2>
-              <span>Brand</span>
-              <a href='#'>More information</a>
-            </li>
-            <li>
-              <h2>Car name</h2>
-              <span>Brand</span>
-              <a href='#'>More information</a>
-            </li>
-            <li>
-              <h2>Car name</h2>
-              <span>Brand</span>
-              <a href='#'>More information</a>
-            </li>
+            {favoriteCars && favoriteCars.map((item, index) => (
+                    <li key={index}>
+                        <h2 className='car-name'>{item.model}</h2>
+                        <span className='car-brand'>{item.make}</span>
+                        <span>{item.year}</span>
+                        <Link 
+                        to={`/favorite/${index}`} 
+                        >
+                            See more
+                        </Link>
+                    </li>
+                ))}
           </ul>
         </div>
       )

@@ -3,8 +3,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3em;
-    padding: 5em;
+    gap: 1em;
+    padding: 3em;
 }
 
 .info-header {
@@ -12,7 +12,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1em;
+    gap: 0.5em;
 }
 
 .info-car-model {
@@ -53,4 +53,14 @@ th {
 
 .drive {
     text-transform: uppercase;
+}
+
+.favorite-btn {
+    border: none;
+    align-self: last baseline;
+    font-size: 2em;
+    background-color: transparent;
+    color: #696969;
+    cursor: pointer;
+    margin-top: -1.5em;
 }

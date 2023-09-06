@@ -17,6 +17,7 @@ import CarsList from './pages/CarsList/CarsList'
 import About from './pages/About/About'
 import Search from './pages/Search/Search'
 import Info from './pages/Info/Info'
+import Favorite from './pages/Favorite/Favorite'
 
 function App() {
   const [carsInfo, setCarsInfo] = useState([])
@@ -26,6 +27,13 @@ function App() {
   }
 
 
+  // Favorite cars 
+  const [favoriteCars, setFavoriteCars] = useState([])
+
+  const addFavoriteCar = (newFavoriteCar) => {
+    setFavoriteCars([... favoriteCars, newFavoriteCar])
+  }
+
   return (
     <>
       <BrowserRouter>
@@ -34,9 +42,28 @@ function App() {
           <Routes>
             <Route path='/about' element={<About />}/>
             <Route path='/' element={<Home />} />
-            <Route path='/cars' element={<CarsList />} />
-            <Route path='/search' element={<Search getCarsInfo={getCarsInfo} />} />
-            <Route path='/info/:id' element={<Info carsInfo={carsInfo}/>} />
+            <Route path='/cars' 
+              element={<CarsList 
+                favoriteCars={favoriteCars}
+                addFavoriteCar={addFavoriteCar}
+              />} 
+            />
+            <Route path='/search' 
+              element={<Search 
+                getCarsInfo={getCarsInfo}
+              />} 
+            />
+            <Route path='/info/:id' 
+              element={<Info 
+                carsInfo={carsInfo} 
+                addFavoriteCar={addFavoriteCar}
+              />} 
+            />
+            <Route path='/favorite/:id' 
+              element={<Favorite 
+                favoriteCars={favoriteCars}
+              />}
+            />
           </Routes>
         </div>
         <Footer />

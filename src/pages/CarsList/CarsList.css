@@ -7,7 +7,7 @@
 
 .cars-list h2 {
     text-transform: uppercase;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .cars-list span {
@@ -31,7 +31,7 @@
     list-style: none;
     padding: 1.5em 2em;
     border-radius: 0.5em;
-    width: 28%;
+    width: 20%;
     transition: .3s;
     cursor: pointer;
     display: flex;
